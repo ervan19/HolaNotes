@@ -1,0 +1,516 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap");
+
+:root {
+  --font-color: #18191c;
+  --background: #ffffff;
+  --background-blur: rgba(0, 0, 0, 0.04);
+  --button-color: #18191c;
+  --button-text-color: #ffffff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--font-color);
+}
+
+[data-theme="dark"] {
+  --background: #18191c;
+  --font-color: #ffffff;
+  --background-blur: rgba(255, 255, 255, 0.04);
+  --button-color: #ffffff;
+  --button-text-color: #18191c;
+}
+
+#root,
+.App {
+  min-height: 100vh;
+}
+body {
+  background-color: var(--background);
+  min-height: 100vh;
+  position: relative;
+}
+
+li {
+  list-style: none;
+}
+header button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 4px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+header button svg {
+  width: 28px;
+  height: 28px;
+}
+a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--font-color);
+}
+
+::placeholder {
+  color: var(--font-color);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background-color: var(--background);
+  backdrop-filter: blur(10px);
+  margin: 0 auto;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sign-page {
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 40px;
+  text-align: center;
+}
+
+.sign-page h2 {
+  font-size: 40px;
+}
+
+.sign-page p {
+  color: var(--button-color);
+}
+
+.login-input {
+  width: 100%;
+  height: fit-content;
+}
+
+.input-field {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-field label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.login-input input {
+  padding: 12px 24px;
+  border: 1px solid gray;
+  border-radius: 12px;
+  font-size: 16px;
+}
+.login-input button {
+  margin-top: 32px;
+  padding: 16px 24px;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+.sign-page p {
+  color: gray;
+}
+
+.sign-page a {
+  color: var(--font-color);
+  font-weight: 600;
+}
+.pass-validate {
+  margin-top: 8px;
+  text-align: left;
+}
+.error {
+  color: red !important;
+}
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--font-color);
+}
+
+.add-new-note {
+  background-color: var(--background-blur);
+  padding: 8px 16px;
+  border: none;
+  color: var(--font-color);
+  font-size: 16px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-field {
+  padding: 12px 16px;
+  height: 40px;
+  border-radius: 50px;
+  background-color: var(--background-blur);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+}
+form {
+  height: 100vh;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.title-input {
+  width: 100%;
+  border-radius: 24px;
+  font-weight: 600;
+  color: var(--font-color);
+  font-size: 56px;
+  padding: 16px 24px;
+  border: 2px solid transparent;
+}
+
+.title-input::placeholder {
+  font-size: 56px;
+  color: gray;
+  font-weight: 600;
+}
+
+.body-input {
+  width: 100%;
+  font-size: 24px;
+  padding: 12px 24px;
+  height: 400px;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+[data-placeholder]:empty:before {
+  color: gray;
+  content: attr(data-placeholder);
+}
+
+.title-input:focus,
+.body-input:focus {
+  border: 2px solid gray;
+}
+
+.search-field input {
+  display: none;
+  font-size: 16px;
+}
+
+::placeholder {
+  font-size: 16px;
+}
+.search-field.active input {
+  display: block;
+}
+.submit {
+  position: absolute !important;
+  bottom: 48px;
+  right: 48px;
+}
+.submit svg {
+  transform: scale(1.5);
+}
+
+.tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+.tabs .tab {
+  position: relative;
+  font-size: 40px;
+  padding: 12px 16px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.tab::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--font-color);
+  transition: all 0.3s ease-in-out;
+}
+.tab.active::before {
+  width: 100%;
+  left: 0;
+}
+
+.notes-container {
+  width: 100%;
+  padding: 24px 40px;
+  display: none;
+}
+.card-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.notes-container.active {
+  display: grid;
+}
+.card {
+  min-height: 300px;
+  padding: 28px 12px;
+  background-color: var(--background-blur);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.card-title {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+.card-body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-date {
+  font-size: 14px;
+  color: gray;
+  display: block;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.notes-empty {
+  margin-top: 40px;
+  font-size: 18px;
+  text-align: center;
+  text-transform: capitalize;
+  font-style: italic;
+}
+
+.detail-notes {
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px 40px;
+  position: relative;
+}
+
+.detail-title {
+  font-size: 56px;
+  letter-spacing: 1px;
+}
+
+.detail-id,
+.detail-date {
+  color: gray;
+  line-height: 32px;
+}
+.detail-id {
+  font-size: 20px;
+  letter-spacing: 0;
+  font-style: italic;
+}
+
+.detail-body {
+  margin-top: 24px;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.action-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  right: 24px;
+  bottom: 40px;
+}
+
+.action-btn {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-blur);
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  padding: 4px;
+  position: relative;
+}
+.action-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.6s ease-in-out;
+}
+.action-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.action-btn:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.not-found-container {
+  text-align: center;
+  padding: 120px 0;
+  height: 100vh;
+}
+
+.not-found-container h1 {
+  font-size: 120px;
+  letter-spacing: 10px;
+}
+
+.not-found-container p {
+  font-size: 16px;
+  font-style: italic;
+}
+.loading {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-text {
+  text-align: center;
+}
+.notes-loading {
+  text-align: center;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+@media screen and (min-width: 1200px) {
+  header,
+  .tabs,
+  .note-list,
+  .detail-notes,
+  form {
+    width: 1000px;
+    margin: 0 auto;
+  }
+  .tabs {
+    margin-top: 56px;
+  }
+  .sign-page {
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .sign-header .header-right {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    padding: 0;
+    position: static;
+  }
+  .header-right {
+    background-color: var(--background);
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+    gap: 32px;
+    top: 100%;
+    right: 0;
+    width: 60%;
+    min-height: fit-content;
+    padding: 32px 0;
+    display: none;
+    border-radius: 24px;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+
+  .active {
+    display: flex;
+  }
+  .search-field {
+    order: -9999;
+  }
+  .search-field input {
+    display: block;
+  }
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 478px) {
+  .sign-page {
+    padding: 24px 12px;
+  }
+  .login-input {
+    padding: 24px 16px;
+  }
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
